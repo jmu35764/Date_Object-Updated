@@ -86,6 +86,25 @@ public:
 		day--;
 		return temp;
 	}
+
+	friend ostream& operator<<(ostream& out, const Date& dt)
+	{
+		out << dt.month << " " << dt.day << " " << dt.year;
+
+		return out;
+	}
+
+	friend istream& operator>>(istream& in, Date& dt)
+	{
+		cout << "\nEnter Day";
+		in >> dt.day;
+		cout << "\nEnter Month";
+		in >> dt.month;
+		cout << "\nEnter Year";
+		in >> dt.year;
+
+		return in;
+	}
 };
 
 #endif
