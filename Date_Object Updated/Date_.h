@@ -3,6 +3,8 @@
 #define DATE__H 
 
 #include <string>
+#include <iostream>
+using namespace std;
 // Date class declaration.
 
 class Date
