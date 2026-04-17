@@ -58,6 +58,17 @@ void Date::CheckDate(int m, int d, int y)
     }
 }
 
+long Date::Conv_Value(int m, int d, int y) noexcept
+{
+    // Shift months so March is month 1 (to simplify leap-year handling)
+    int a = (14 - m) / 12;
+    int y2 = y + 4800 - a;
+    int m2 = m + 12 * a - 3;
+    long jd = d + (153 * m2 + 2) / 5 + 365L * y2 + y2 / 4 - y2 / 100 + y2 / 400 - 32045;
+    // jd is Julian Day Number; convert to a serial by subtracting a constant
+    return jd;
+}
+
 
 // Date Constructor
 Date::Date(int m, int d, int y)
@@ -224,6 +235,97 @@ std::string Date::Day_M_Y() const
     return ss.str();
 
 }
+int Date::operator- (const Date& rhs)
+{
+    long s1 = Conv_Value(month, day, year);
+    long s2 = Conv_Value(rhs.month, rhs.day, rhs.year);
+
+    return s1 - s2;
+}
+
+Date& Date::operator++()
+{
+    if (day = lastDay())
+    {
+        day = 1;
+        
+        if (month = 12)
+        {
+            month = 1;
+            ++year;
+        }
+
+        else
+        {
+            ++month;
+        }
 
 
-//Date::Date()
+    }
+
+    else
+    {
+        ++day;
+    }
+
+    return *this;
+}
+
+Date& Date::operator--()
+{
+    if (day = 1)
+    {
+        if (month = 1)
+        {
+            month = 12;
+            --year;
+        }
+
+        else
+        {
+            --month;
+        }
+
+        day = lastDay();
+    }
+    
+    else
+    {
+        --day;
+    }
+
+    return *this;
+}
+
+Date Date::operator++(int)
+{
+    Date temp = *this;
+    day++;
+    return temp;
+}
+
+Date Date::operator--(int)
+{
+    Date temp = *this;
+    day--;
+    return temp;
+}
+
+ostream& operator<<(ostream& out, const Date& date)
+{
+    out << date.month << " " << date.day << " " << date.year;
+
+    return out;
+}
+
+istream& operator>>(istream& in, Date& date)
+{
+    cout << "\nEnter Day";
+    in >> date.day;
+    cout << "\nEnter Month";
+    in >> date.month;
+    cout << "\nEnter Year";
+    in >> date.year;
+
+    return in;
+}

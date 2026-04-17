@@ -14,6 +14,7 @@ private:
 
 	bool ValidDate(int m, int d, int y);
 	void CheckDate(int m, int d, int y);
+	static long Conv_Value(int m, int d, int y) noexcept;  //Algorithm for converting Dates to number values
 
 public:
 	// Constructor
@@ -57,54 +58,31 @@ public:
 	std::string Day_M_Y() const;
 
 	// Overloaded Operator Functions
+	
+	// Subtraction
+	int operator-(const Date& rhs);
+
 	// Prefix ++
-	Date& operator++()
-	{
-		++day;
-		return *this;
-	}
+	Date& operator++();
+
 
 	// Prefix --
-	Date& operator--()
-	{
-		--day;
-		return *this;
-	}
+	Date& operator--();
+
 
 	// Postfix ++
-	Date operator++(int)
-	{
-		Date temp = *this;
-		day++;
-		return temp;
-	}
+	Date operator++(int);
+
 
 	// Postfix --
-	Date operator--(int)
-	{
-		Date temp = *this;
-		day--;
-		return temp;
-	}
+	Date operator--(int);
 
-	friend ostream& operator<<(ostream& out, const Date& dt)
-	{
-		out << dt.month << " " << dt.day << " " << dt.year;
 
-		return out;
-	}
+	friend ostream& operator<<(ostream& out, const Date& dt);
 
-	friend istream& operator>>(istream& in, Date& dt)
-	{
-		cout << "\nEnter Day";
-		in >> dt.day;
-		cout << "\nEnter Month";
-		in >> dt.month;
-		cout << "\nEnter Year";
-		in >> dt.year;
 
-		return in;
-	}
+	friend istream& operator>>(istream& in, Date& dt);
+
 };
 
 #endif
