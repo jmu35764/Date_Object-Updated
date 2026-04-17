@@ -78,10 +78,10 @@ public:
 	Date operator--(int);
 
 
-	friend ostream& operator<<(ostream& out, const Date& dt);
+	friend ostream& operator<<(ostream& out, const Date& date);
 
 
-	friend istream& operator>>(istream& in, Date& dt);
+	friend istream& operator>>(istream& in, Date& date);
 
 };
 
