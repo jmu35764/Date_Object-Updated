@@ -371,5 +371,23 @@ istream& operator>>(istream& in, Date& date)
     cout << "\nEnter Year";
     in >> date.year;
 
-    return in;
+    if (date.ValidDate(date.month, date.day, date.year) == false)
+    {
+        while (date.ValidDate(date.month, date.day, date.year) == false)
+        {
+            cout << "Enter a valid date" << endl;
+
+            cout << "\nEnter Day";
+            in >> date.day;
+            cout << "\nEnter Month";
+            in >> date.month;
+            cout << "\nEnter Year";
+            in >> date.year;
+
+
+        }
+
+        return in;
+    }
+
 }

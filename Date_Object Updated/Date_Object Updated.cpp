@@ -247,6 +247,14 @@ int main()
 	cout << "Post-decrement " << d_id_post << endl;
 
 
+//****** STREAM OPERATOR TEST ******//
+// Test to see if the stream operator overloads work
+	Date din;
+	
+	cin >> din;
+
+	cout << din;
+
 }
 
 
