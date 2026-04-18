@@ -245,12 +245,13 @@ int Date::operator- (const Date& rhs)
 
 Date& Date::operator++()
 {
-    if (day = lastDay())
+    if (day == lastDay())
     {
         day = 1;
         
-        if (month = 12)
+        if (month == 12)
         {
+            cout << "month was december" << endl;
             month = 1;
             ++year;
         }
@@ -273,9 +274,9 @@ Date& Date::operator++()
 
 Date& Date::operator--()
 {
-    if (day = 1)
+    if (day == 1)
     {
-        if (month = 1)
+        if (month == 1)
         {
             month = 12;
             --year;
