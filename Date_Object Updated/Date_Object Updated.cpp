@@ -201,6 +201,51 @@ int main()
 
 	cout << "Pre-decrement " << d_id_pre << endl;
 
+	//------ END OF YEAR ------//
+
+	d_id_pre.setDate(12, 31, 2024);
+
+	cout << d_id_pre << endl;
+
+	++d_id_pre;
+
+	cout << "Pre-increment " << d_id_pre << endl;
+
+	--d_id_pre;
+
+	cout << "Pre-decrement " << d_id_pre << endl;
+
+
+	//****** INCREMENT/DECREMENT TESTS: POSTFIX ******//
+//------ LEAP YEAR ------//
+// Testing the code to see if the Post-increment or
+// pre-decrement operator overload was successful
+	Date d_id_post(2, 29, 2008);
+
+	cout << d_id_post << endl;
+
+	d_id_post++;
+
+	cout << "Post-increment " << d_id_post << endl;
+
+	d_id_post--;
+
+	cout << "Post-decrement " << d_id_post << endl;
+
+	//------ END OF YEAR ------//
+
+	d_id_post.setDate(12, 31, 2024);
+
+	cout << d_id_post << endl;
+
+	d_id_post++;
+
+	cout << "Post-increment " << d_id_post << endl;
+
+	d_id_post--;
+
+	cout << "Post-decrement " << d_id_post << endl;
+
 
 }
 

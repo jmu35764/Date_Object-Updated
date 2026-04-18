@@ -301,14 +301,56 @@ Date& Date::operator--()
 Date Date::operator++(int)
 {
     Date temp = *this;
-    day++;
+
+    if (day == lastDay())
+    {
+        day = 1;
+
+        if (month == 12)
+        {
+            cout << "month was december" << endl;
+            month = 1;
+            year++;
+        }
+
+        else
+        {
+            month++;
+        }
+
+
+    }
+
+    else
+    {
+        day++;
+    }
     return temp;
 }
 
 Date Date::operator--(int)
 {
     Date temp = *this;
-    day--;
+    if (day == 1)
+    {
+        if (month == 1)
+        {
+            month = 12;
+            year--;
+        }
+
+        else
+        {
+            month--;
+        }
+
+        day = lastDay();
+    }
+
+    else
+    {
+        day--;
+    }
     return temp;
 }
 
