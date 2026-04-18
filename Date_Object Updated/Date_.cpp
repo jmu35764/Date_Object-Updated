@@ -308,7 +308,7 @@ Date Date::operator++(int)
 
         if (month == 12)
         {
-            cout << "month was december" << endl;
+            //cout << "month was december" << endl;
             month = 1;
             year++;
         }
@@ -331,6 +331,7 @@ Date Date::operator++(int)
 Date Date::operator--(int)
 {
     Date temp = *this;
+
     if (day == 1)
     {
         if (month == 1)
