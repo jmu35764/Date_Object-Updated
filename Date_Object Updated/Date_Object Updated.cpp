@@ -168,6 +168,9 @@ int main()
 
 
 	//****** DATE SUBTRACTION TEST******//
+	// Testing the algorithm to covert a date to a number
+	// and subtracting two dates from eachother
+	// This also tests the << stream operator
 
 	cout << "Date Subtration Test" << endl;
 
@@ -176,7 +179,27 @@ int main()
 
 	cout << "The days between " << dst1 << " and " << dst2 << " are " << dst1 - dst2 << endl;
 
-	Date dst3()
+	dst1.setDate(2, 2, 2006);
+	dst2.setDate(11, 10, 2003);
+
+	cout << "The days between " << dst1 << " and " << dst2 << " are " << dst1 - dst2 << endl;
+
+	//****** INCREMENT/DECREMENT TESTS: PREFIX ******//
+	//------ LEAP YEAR ------//
+	// Testing the code to see if the pre-increment or
+	// pre-decrement operator overload was successful
+
+	Date d_id_pre(2, 29, 2008);
+
+	cout << d_id_pre << endl;
+	
+	++d_id_pre;
+
+	cout << "Pre-increment " << d_id_pre << endl;
+
+	--d_id_pre;
+
+	cout << "Pre-decrement " << d_id_pre << endl;
 
 
 }
